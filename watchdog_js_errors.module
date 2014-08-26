@@ -9,7 +9,7 @@ function watchdog_js_errors_menu() {
       'page callback' => 'watchdog_js_errors_callback',
       'access callback' => TRUE,
       'delivery callback' => 'drupal_json_output',
-     ),
+    ),
   );
 }
 
@@ -19,7 +19,7 @@ function watchdog_js_errors_menu() {
 function watchdog_js_errors_callback() {
   $errors = $_POST['errors'];
   foreach ($errors as $error) {
-    watchdog('watchdog_js_errors', 'Error :message in line :line' , array(':message' => $error['message'], ':line' => $error['line']), WATCHDOG_ERROR, $error['url']);
+    watchdog('watchdog_js_errors', 'Error :message in line :line', array(':message' => $error['message'], ':line' => $error['line']), WATCHDOG_ERROR, $error['url']);
   }
 
   return t('Saved in Watchdog!');
