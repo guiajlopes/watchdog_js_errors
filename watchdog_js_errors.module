@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Watchdog js errors module.
+ */
 
 /**
  * Implements hook_menu().
