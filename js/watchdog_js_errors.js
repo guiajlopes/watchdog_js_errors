@@ -1,6 +1,7 @@
 /**
  * @file JavaScript for Watchdog js errors.
  */
+
 (function($) {
   Drupal.behaviors.watchdog_js_errors = {
     attach: function(context, settings) {
