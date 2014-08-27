@@ -13,8 +13,8 @@
             },
             type: "POST",
             dataType: 'json',
-            success: function(responce) {
-              console.log(responce);
+            success: function(response) {
+              console.log(response);
               errors = [];
             }
           });
