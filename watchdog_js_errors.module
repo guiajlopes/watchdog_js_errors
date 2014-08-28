@@ -42,3 +42,13 @@ function watchdog_js_errors_permission() {
     ),
   );
 }
+
+/**
+ * Implements hook_init().
+ */
+function watchdog_js_errors_init() {
+  if (user_access('save_watchdog_js_errors')) {
+    $module_path = drupal_get_path('module', 'watchdog_js_errors');
+    drupal_add_js($module_path . '/js/watchdog_js_errors.js');
+  }
+}

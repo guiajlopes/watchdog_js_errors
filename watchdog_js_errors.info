@@ -1,5 +1,3 @@
 name = Watchdog JS Errors.
 description = Save JS Errors in Watchdog log.
 core = 7.x
-
-scripts[] = js/watchdog_js_errors.js
