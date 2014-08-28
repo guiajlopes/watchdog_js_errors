@@ -21,10 +21,24 @@ function watchdog_js_errors_menu() {
  * Page callback.
  */
 function watchdog_js_errors_callback() {
-  $errors = $_POST['errors'];
-  foreach ($errors as $error) {
-    watchdog('watchdog_js_errors', 'Error :message in line :line', array(':message' => $error['message'], ':line' => $error['line']), WATCHDOG_ERROR, $error['url']);
-  }
+  if (user_access('save_watchdog_js_errors')) {
+    $errors = $_POST['errors'];
+    foreach ($errors as $error) {
+      watchdog('watchdog_js_errors', 'Error :message in line :line', array(':message' => $error['message'], ':line' => $error['line']), WATCHDOG_ERROR, $error['url']);
+    }
 
-  return t('Saved in Watchdog!');
+    return t('Saved in Watchdog!');
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function watchdog_js_errors_permission() {
+  return array(
+    'save_watchdog_js_errors' => array(
+      'title' => t('Save js errors in Watchdog'),
+      'description' => t('Allows users to save js errors in watchdog.'),
+    ),
+  );
 }
